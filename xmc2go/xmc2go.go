@@ -1,4 +1,4 @@
-package main
+package xmc2go
 
 import (
 	"crypto/md5"
@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func getToken() string {
+func GetToken() string {
 	//纳秒级别的
 	t := time.Now().UnixNano()
 	h := md5.New()
