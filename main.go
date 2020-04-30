@@ -1,20 +1,28 @@
 package main
 
 import (
-	"crypto/md5"
-	"encoding/binary"
-	"encoding/hex"
-	"time"
+	"fmt"
 )
 
-func getToken() string {
-	//纳秒级别的
-	t := time.Now().UnixNano()
-	h := md5.New()
-	b := make([]byte, 16)
+type Target interface {
+	Execute()
+}
 
-	binary.BigEndian.PutUint64(b, uint64(t))
-	h.Write([]byte(b))
+type Adapter struct {
+}
 
-	return hex.EncodeToString(h.Sum(nil))
+func (a *Adapter) SpecExecute() {
+	fmt.Println("chargging...")
+}
+
+type AdapterTransform struct {
+	*Adapter
+}
+
+func (a AdapterTransform) Execute() {
+	a.SpecExecute()
+}
+
+func main() {
+
 }
