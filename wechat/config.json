@@ -1,0 +1,30 @@
+{
+  "account_capacity": 50,
+  "version": "0.0.1",
+  "addr": "localhost",
+  "port": 8080,
+  "framework": "gin",
+  "cache": "file",
+  "redis": {
+    "port": 27017,
+    "connect_retry": 5
+  },
+  "mysql": {
+    "port": 3306
+  },
+  "urls": [
+    {
+      "name": "access_token",
+      "target": "https://api.weixin.qq.com/cgi-bin/token"
+    },
+    {
+      "name": "callback_ip",
+      "target": "https://api.weixin.qq.com/cgi-bin/getcallbackip"
+    },
+    {
+      "name": "api_ip",
+      "target": "https://api.weixin.qq.com/cgi-bin/get_api_domain_ip",
+      "query": [{"name": "access_token"}]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "account_capacity": 50,
+  "version": "0.0.1",
+  "addr": "localhost",
+  "port": 8080,
+  "framework": "gin",
+  "cache": "file",
+  "redis": {
+    "port": 27017,
+    "connect_retry": 5
+  },
+  "mysql": {
+    "port": 3306
+  },
+  "uri": {
+    "access_token": "https://api.weixin.qq.com/cgi-bin/token"
+  },
+  "wechats": [
+    {
+      "appid": "wxd754a949bbcf1130",
+      "secret": "dd9476b135e469184a62df91fb30f78b",
+      "token": "bbacjisa878109823aasjfhhaqrpqwia"
+    }
+  ],
+  "wxd754a949bbcf1130": {},
+  "urls": [
+    {
+      "name": "access_token",
+      "target": "https://api.weixin.qq.com/cgi-bin/token",
+      "method": "Get",
+      "query": [
+        {
+          "name": "appid"
+        },
+        {
+          "name": "secret"
+        },
+        {
+          "grant_type": "client_credential"
+        }
+      ]
+    },
+    {
+      "name": "callback_ip",
+      "target": "https://api.weixin.qq.com/cgi-bin/getcallbackip"
+    },
+    {
+      "name": "api_ip",
+      "target": "https://api.weixin.qq.com/cgi-bin/get_api_domain_ip",
+      "query": [{"name": "access_token"}]
+    }
+  ]
+}
